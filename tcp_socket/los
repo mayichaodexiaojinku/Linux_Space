@@ -1,0 +1,58 @@
+g++ -o tcp_serv tcp_serv.cpp -std=c++11 -lpthread 
+In file included from tcp_serv.cpp:1:0:
+tcp_serv.hpp:26:16: 错误：字段‘pool’类型不完全
+     ThreadPool pool;
+                ^
+tcp_serv.cpp:18:1: 错误：expected ‘}’ at end of input
+ }
+ ^
+In file included from tcp_serv.hpp:15:0,
+                 from tcp_serv.cpp:1:
+threadPool.hpp: 在构造函数‘ThreadPool::ThreadPool(int, Task)’中:
+threadPool.hpp:32:72: 错误：对‘std::queue<Task>::queue(Task&)’的调用没有匹配的函数
+      ThreadPool(int nums_,Task t):nums(nums_),Idle_nums(0),Task_queue(t)
+                                                                        ^
+threadPool.hpp:32:72: 附注：备选是：
+In file included from /usr/include/c++/4.8.2/queue:64:0,
+                 from threadPool.hpp:4,
+                 from tcp_serv.hpp:15,
+                 from tcp_serv.cpp:1:
+/usr/include/c++/4.8.2/bits/stl_queue.h:142:7: 附注：std::queue<_Tp, _Sequence>::queue(_Sequence&&) [with _Tp = Task; _Sequence = std::deque<Task, std::allocator<Task> >]
+       queue(_Sequence&& __c = _Sequence())
+       ^
+/usr/include/c++/4.8.2/bits/stl_queue.h:142:7: 附注：  no known conversion for argument 1 from ‘Task’ to ‘std::deque<Task, std::allocator<Task> >&&’
+/usr/include/c++/4.8.2/bits/stl_queue.h:138:7: 附注：std::queue<_Tp, _Sequence>::queue(const _Sequence&) [with _Tp = Task; _Sequence = std::deque<Task, std::allocator<Task> >]
+       queue(const _Sequence& __c)
+       ^
+/usr/include/c++/4.8.2/bits/stl_queue.h:138:7: 附注：  no known conversion for argument 1 from ‘Task’ to ‘const std::deque<Task, std::allocator<Task> >&’
+/usr/include/c++/4.8.2/bits/stl_queue.h:93:11: 附注：std::queue<Task>::queue(const std::queue<Task>&)
+     class queue
+           ^
+/usr/include/c++/4.8.2/bits/stl_queue.h:93:11: 附注：  no known conversion for argument 1 from ‘Task’ to ‘const std::queue<Task>&’
+/usr/include/c++/4.8.2/bits/stl_queue.h:93:11: 附注：std::queue<Task>::queue(std::queue<Task>&&)
+/usr/include/c++/4.8.2/bits/stl_queue.h:93:11: 附注：  no known conversion for argument 1 from ‘Task’ to ‘std::queue<Task>&&’
+In file included from tcp_serv.hpp:15:0,
+                 from tcp_serv.cpp:1:
+threadPool.hpp: 在静态成员函数‘static void* ThreadPool::ThreadRoutine(void*)’中:
+threadPool.hpp:89:6: 错误：a function-definition is not allowed here before ‘{’ token
+      {
+      ^
+In file included from tcp_serv.cpp:1:0:
+tcp_serv.hpp: 在构造函数‘ThreadPool::Server::Server(const int&)’中:
+tcp_serv.hpp:29:35: 错误：类‘ThreadPool::Server’没有名为‘pool’的字段
+      :port(port_),listen_sock(-1),pool(5)
+                                   ^
+In file included from tcp_serv.cpp:1:0:
+tcp_serv.hpp: 在成员函数‘void ThreadPool::Server::InitServer()’中:
+tcp_serv.hpp:57:17: 错误：‘pool’在此作用域中尚未声明
+                 pool->InitThreadPool();
+                 ^
+tcp_serv.hpp: 在成员函数‘void ThreadPool::Server::Run()’中:
+tcp_serv.hpp:82:6: 错误：‘pool’在此作用域中尚未声明
+      pool.TaskPush();
+      ^
+tcp_serv.cpp: 在全局域：
+tcp_serv.cpp:18:1: 错误：expected unqualified-id at end of input
+ }
+ ^
+make: *** [tcp_serv] 错误 1
