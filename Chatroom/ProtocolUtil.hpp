@@ -4,30 +4,33 @@
 #include<iostream>
 #include<sys/socket.h>
 #include<sys/types.h>
+#include<json/json.h>
 #include<unistd.h>
 #include<stdlib.h>
 #include<pthread.h>
 #include<netinet/in.h>
 #include<arpa/inet.h>
 #define BACKLOG 5
+#define MESSAGE_SIZE 1024
 using namespace std;
 class Request{
-private:
+public:
    string method;
    string content_length;
    string blank;
    string text;
 public:
-   Request():blank('\n')
+   Request():blank("\n")
    {}
    ~Request()
    {}
 };
 class Util{
-     static bool ResgisterEnter(string &nick_name,string &school,\
+public:
+     static bool RegisterEnter(string &nick_name,string &school,\
                                  string &passwd)
      {
-         stirng again;
+         string again;
          cout <<"Please Enter name:";
          cin >> nick_name;
          cout <<"Please Enter school:";
@@ -41,13 +44,24 @@ class Util{
          }
          return false;
      }
-     static bool LoginEnter(string &id,string &passwd)
+     static bool LoginEnter(unsigned int  &id,string &passwd)
      { 
          cout << "Please Enter Your ID :";
          cin >> id;
          cout << "Please Enter Your Passad:";
-         cin >> passed;
+         cin >> passwd;
          return true;  
+     }
+     
+     static void Serializer(Json::Value &root,string &sendString)
+     {
+         Json::FastWriter w;
+         sendString = w.write(root);
+     }
+     static void UnSerializer(string &sendString,Json::Value &root)
+     {
+         Json::Reader r;
+         r.parse(sendString,root,false);
      }
      static string IntToString(int a)
      {
@@ -66,11 +80,11 @@ class Util{
      {
         char c = 'x';
         while(c != '\n'){
-          ssize_t s = recv(sock,&c,1,0)
+          ssize_t s = recv(sock,&c,1,0);
           if(s > 0){
              if(c == '\n')
                   break;
-             OutString.push_back();    
+             OutString.push_back(c);    
           }
           else 
              break;
@@ -85,27 +99,44 @@ class Util{
           string &cl = rq.content_length;
           size_t pos = cl.find(": ");
           if(string::npos == pos){
-          return;
+                 return;
           }
-          string sub = cl.substr(s+2);
-          int size = StringToint(sub);
+          string sub = cl.substr(pos+2);
+          int size = StringToInt(sub);
           char c;
-          for(auto i; i < size ; i++){
+          for(auto i = 0; i < size ; i++){
                   recv(sock,&c,1,0);
                   (rq.text).push_back(c);
           }
      }
 	 static void SendRequest(int tcp_sock,const Request& rq)
 	 {
-		 string &m_ = rq.method;
-		 string &cl_ = rq.content_length;
-		 string &b_ = rq.blank;
-		 string &text_ = rq.text;
+		 string m_ = rq.method;
+		 string cl_ = rq.content_length;
+		 string b_ = rq.blank;
+		 string text_ = rq.text;
 		 send(tcp_sock,m_.c_str(),m_.size(),0);
 		 send(tcp_sock,cl_.c_str(),cl_.size(),0);
 		 send(tcp_sock,b_.c_str(),b_.size(),0);
 		 send(tcp_sock,text_.c_str(),text_.size(),0);
 	 }
+     static void RecvMessage(int sock,string &recvString,\
+       struct sockaddr_in &peer)
+     {
+         char msg[MESSAGE_SIZE];
+         socklen_t len = sizeof(peer); 
+         ssize_t s = recvfrom(sock,msg,sizeof(msg)-1,0,\
+                   (struct sockaddr*)&peer,&len);
+         if( s > 0 ){
+               recvString = msg;
+         }
+
+     }
+     static void SendMessage(int sock,const string &message,\
+                             struct sockaddr_in &peer)
+     {
+          sendto(sock,message.c_str(),message.size(),0,(struct sockaddr*)&peer,sizeof(peer));
+     }
 };
 class SocketApi{
 public:
@@ -147,17 +178,19 @@ public:
         }       
         out_ip = inet_ntoa(peer.sin_addr);
         out_port =htons(peer.sin_port); 
+        return sock;
     }   
-    static bool Connect(const int&sock,string peer_ip,const int &port) 
+    static bool Connect(int &sock,string peer_ip,const int &port) 
     {
         struct sockaddr_in peer;
         peer.sin_family = AF_INET;
         peer.sin_addr.s_addr = inet_addr(peer_ip.c_str());
         peer.sin_port = htons(port);
         if(connect(sock,(struct sockaddr*)&peer,sizeof(peer)) < 0){
+          perror("connect:");
           LOG("connect error",WARNING);
-          return -1;
+          return 0;
         }
         return 1;
-    } 
+	} 
 };

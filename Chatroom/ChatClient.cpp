@@ -20,9 +20,9 @@ int main(int argc,char *argv[])
       exit(6);
    }
    int select = 0;
-   Client *cp= new Client(argv[1]);
-   cp->InitClient();
    while(1){
+       Client *cp= new Client(argv[1]);
+       cp->InitClient();
 	   Menu(select);
 	   switch(select){
 		   case 1:
