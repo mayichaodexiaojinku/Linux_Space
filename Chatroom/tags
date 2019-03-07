@@ -1,0 +1,163 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Accept	ProtocolUtil.hpp	/^    static int Accept(int listen_sock,string &out_ip,int &out_port)$/;"	f	class:SocketApi
+AddOnlineUser	UserManager.hpp	/^    void AddOnlineUser(const unsigned int &id,struct sockaddr_in &peer)$/;"	f	class:UserManager
+BACKLOG	ProtocolUtil.hpp	13;"	d
+BEGIN_ID	UserManager.hpp	5;"	d
+Bind	ProtocolUtil.hpp	/^    static void Bind(int sock,int port)$/;"	f	class:SocketApi
+Chat	ChatClient.hpp	/^      void Chat()$/;"	f	class:Client
+Check	UserManager.hpp	/^    unsigned int Check(const unsigned int &id,const string &passwd)$/;"	f	class:UserManager
+Client	ChatClient.hpp	/^      Client(std::string ip_)$/;"	f	class:Client
+Client	ChatClient.hpp	/^class Client{$/;"	c
+Connect	ProtocolUtil.hpp	/^    static bool Connect(int &sock,string peer_ip,const int &port) $/;"	f	class:SocketApi
+ConnectServer	ChatClient.hpp	/^      bool ConnectServer()$/;"	f	class:Client
+Consume	ChatServer.hpp	/^    void Consume()$/;"	f	class:Server
+DataPool	DataPool.hpp	/^	DataPool(int cap_ = MAX_CAP)$/;"	f	class:DataPool
+DataPool	DataPool.hpp	/^class DataPool{$/;"	c
+DrawHeader	Window.hpp	/^	void DrawHeader()$/;"	f	class:Window
+DrawInput	Window.hpp	/^	void DrawInput()$/;"	f	class:Window
+DrawOnline	Window.hpp	/^	void DrawOnline()$/;"	f	class:Window
+DrawOutput	Window.hpp	/^	void DrawOutput()$/;"	f	class:Window
+ERROR	log.hpp	6;"	d
+GetMessage	DataPool.hpp	/^    void GetMessage(string &msg)$/;"	f	class:DataPool
+GetStringFromInput	Window.hpp	/^    void GetStringFromInput(string &message)$/;"	f	class:Window
+HeaderRequest	ChatServer.hpp	/^	static void* HeaderRequest(void *arg)$/;"	f	class:Server
+Id	Message.hpp	/^    unsigned int  &Id()$/;"	f	class:Message
+InitClient	ChatClient.hpp	/^      void InitClient()$/;"	f	class:Client
+InitServer	ChatServer.hpp	/^	void InitServer()$/;"	f	class:Server
+Input	ChatClient.hpp	/^      static void *Input(void *arg)$/;"	f	class:Client
+Insert	UserManager.hpp	/^    unsigned int Insert(const string &n_,const string &s_\\$/;"	f	class:UserManager
+IntToString	ProtocolUtil.hpp	/^     static string IntToString(int a)$/;"	f	class:Util
+IsPasswdRight	UserManager.hpp	/^    bool IsPasswdRight(string p_)$/;"	f	class:User
+LOG	log.hpp	20;"	d
+Listen	ProtocolUtil.hpp	/^    static void Listen(int listen_sock)$/;"	f	class:SocketApi
+Lock	UserManager.hpp	/^    void Lock()$/;"	f	class:UserManager
+Log	log.hpp	/^void Log(std::string msg, int level , std::string file, int line)$/;"	f
+Login	ChatClient.hpp	/^      bool Login()$/;"	f	class:Client
+LoginEnter	ProtocolUtil.hpp	/^     static bool LoginEnter(unsigned int  &id,string &passwd)$/;"	f	class:Util
+LoginUser	ChatServer.hpp	/^    unsigned int LoginUser(unsigned int &id,string &passwd)        $/;"	f	class:Server
+MAX_CAP	DataPool.hpp	6;"	d
+MESSAGE_SIZE	ProtocolUtil.hpp	14;"	d
+Menu	ChatClient.cpp	/^static void Menu(int &s)$/;"	f	file:
+Message	Message.hpp	/^	Message(const string &n_,const string &s_,const string &t_,\\$/;"	f	class:Message
+Message	Message.hpp	/^    Message()$/;"	f	class:Message
+Message	Message.hpp	/^class Message{$/;"	c
+NORMAL	log.hpp	4;"	d
+NickName	Message.hpp	/^    string &NickName()$/;"	f	class:Message
+Online	UserManager.hpp	/^    unordered_map<unsigned int,struct sockaddr_in> Online()$/;"	f	class:UserManager
+Param	ChatServer.hpp	/^    Param(Server *sp_,int sock_,string ip_,int port_)$/;"	f	class:Param
+Param	ChatServer.hpp	/^class Param$/;"	c
+ParamPair	ChatClient.hpp	/^struct ParamPair{$/;"	s
+Product	ChatServer.hpp	/^    void Product()$/;"	f	class:Server
+PutMessage	DataPool.hpp	/^	void PutMessage(const string &msg)$/;"	f	class:DataPool
+PutMessageToOutput	Window.hpp	/^    void PutMessageToOutput(string &message)$/;"	f	class:Window
+PutStringToWin	Window.hpp	/^    void PutStringToWin(WINDOW* w,int y,int x,const string &message)$/;"	f	class:Window
+PutUserToOnline	Window.hpp	/^    void PutUserToOnline(vector<string> &onlineuser,string &onlineString)$/;"	f	class:Window
+RecvMessage	ProtocolUtil.hpp	/^     static void RecvMessage(int sock,string &recvString,\\$/;"	f	class:Util
+RecvOneline	ProtocolUtil.hpp	/^     static void RecvOneline(int sock,string &OutString)$/;"	f	class:Util
+RecvRequest	ProtocolUtil.hpp	/^     static void RecvRequest(int sock,Request &rq)$/;"	f	class:Util
+Register	ChatClient.hpp	/^      bool Register()$/;"	f	class:Client
+RegisterEnter	ProtocolUtil.hpp	/^     static bool RegisterEnter(string &nick_name,string &school,\\$/;"	f	class:Util
+RegisterUser	ChatServer.hpp	/^    unsigned int RegisterUser(const string &name,const string school\\$/;"	f	class:Server
+Request	ProtocolUtil.hpp	/^   Request():blank("\\n")$/;"	f	class:Request
+Request	ProtocolUtil.hpp	/^class Request{$/;"	c
+Run	text.cc	/^static void* Run(void *arg)$/;"	f	file:
+RunConsume	ChatServer.cpp	/^void *RunConsume(void* arg)$/;"	f
+RunHead	ChatClient.hpp	/^      static void *RunHead(void *arg)$/;"	f	class:Client
+RunProduct	ChatServer.cpp	/^void *RunProduct(void* arg)$/;"	f
+RunWelcome	Window.hpp	/^    void RunWelcome()$/;"	f	class:Window
+SafeWrefresh	Window.hpp	/^    void SafeWrefresh(WINDOW *w) $/;"	f	class:Window
+School	Message.hpp	/^    string &School()$/;"	f	class:Message
+SendMessage	ProtocolUtil.hpp	/^     static void SendMessage(int sock,const string &message,\\$/;"	f	class:Util
+SendRequest	ProtocolUtil.hpp	/^	 static void SendRequest(int tcp_sock,const Request& rq)$/;"	f	class:Util
+Serializer	ProtocolUtil.hpp	/^     static void Serializer(Json::Value &root,string &sendString)$/;"	f	class:Util
+Server	ChatServer.hpp	/^	Server(int tcp_port_ = 8080,int udp_port_ = 8888)$/;"	f	class:Server
+Server	ChatServer.hpp	/^class Server$/;"	c
+Socket	ProtocolUtil.hpp	/^    static int Socket(int type)$/;"	f	class:SocketApi
+SocketApi	ProtocolUtil.hpp	/^class SocketApi{$/;"	c
+Strat	ChatServer.hpp	/^     void Strat()$/;"	f	class:Server
+StringToInt	ProtocolUtil.hpp	/^     static int StringToInt(string &s)$/;"	f	class:Util
+TCP_PORT	ChatClient.hpp	5;"	d
+Text	Message.hpp	/^    string &Text()$/;"	f	class:Message
+ToRecvValue	Message.hpp	/^    void ToRecvValue(string &recvString)$/;"	f	class:Message
+ToSendString	Message.hpp	/^    void ToSendString(string &sendString)$/;"	f	class:Message
+UDP_PORT	ChatClient.hpp	6;"	d
+Uages	ChatClient.cpp	/^static void Uages(std::string proc)$/;"	f	file:
+Uages	ChatServer.cpp	/^static void Uages(string proc)$/;"	f	file:
+UdpRecv	ChatClient.hpp	/^      void UdpRecv(string &msg)$/;"	f	class:Client
+UdpSend	ChatClient.hpp	/^      void UdpSend(const string &msg)$/;"	f	class:Client
+UnLock	UserManager.hpp	/^    void UnLock()$/;"	f	class:UserManager
+UnSerializer	ProtocolUtil.hpp	/^     static void UnSerializer(string &sendString,Json::Value &root)$/;"	f	class:Util
+User	UserManager.hpp	/^	User(const string &n_,const string &s_,const string &pwd_)$/;"	f	class:User
+User	UserManager.hpp	/^class User{$/;"	c
+UserManager	UserManager.hpp	/^    UserManager():assign_id(BEGIN_ID)$/;"	f	class:UserManager
+UserManager	UserManager.hpp	/^class UserManager{$/;"	c
+Util	ProtocolUtil.hpp	/^class Util{$/;"	c
+WARNING	log.hpp	5;"	d
+Window	Window.hpp	/^	Window()$/;"	f	class:Window
+Window	Window.hpp	/^class Window{$/;"	c
+assign_id	UserManager.hpp	/^    unsigned int assign_id;$/;"	m	class:UserManager
+blank	ProtocolUtil.hpp	/^   string blank;$/;"	m	class:Request
+blank_sem	DataPool.hpp	/^	sem_t blank_sem;$/;"	m	class:DataPool
+cap	DataPool.hpp	/^	int cap;$/;"	m	class:DataPool
+cl	ChatClient.hpp	/^    Client* cl;$/;"	m	struct:ParamPair
+client	Makefile	/^client=ChatClient$/;"	m
+consume_step	DataPool.hpp	/^	int consume_step;  $/;"	m	class:DataPool
+content_length	ProtocolUtil.hpp	/^   string content_length;$/;"	m	class:Request
+data_sem	DataPool.hpp	/^	sem_t data_sem;    $/;"	m	class:DataPool
+header	Window.hpp	/^	WINDOW *header;$/;"	m	class:Window
+id	ChatClient.hpp	/^      unsigned int id;$/;"	m	class:Client
+id	Message.hpp	/^	unsigned int id;$/;"	m	class:Message
+input	Window.hpp	/^	WINDOW *input;$/;"	m	class:Window
+ip	ChatServer.hpp	/^    string ip;$/;"	m	class:Param
+lock	UserManager.hpp	/^   pthread_mutex_t lock; $/;"	m	class:UserManager
+lock	Window.hpp	/^    pthread_mutex_t lock;$/;"	m	class:Window
+log_level	log.hpp	/^const char* log_level[]={$/;"	v
+main	ChatClient.cpp	/^int main(int argc,char *argv[])$/;"	f
+main	ChatServer.cpp	/^int main(int argc,char *argv[])$/;"	f
+main	text.cc	/^int main()$/;"	f
+method	ProtocolUtil.hpp	/^   string method;$/;"	m	class:Request
+nick_name	ChatClient.hpp	/^      string nick_name;$/;"	m	class:Client
+nick_name	Message.hpp	/^    string nick_name;$/;"	m	class:Message
+nick_name	UserManager.hpp	/^	string nick_name;$/;"	m	class:User
+online	Window.hpp	/^	WINDOW *online;$/;"	m	class:Window
+online_user	UserManager.hpp	/^    unordered_map<unsigned int,struct sockaddr_in> online_user;$/;"	m	class:UserManager
+output	Window.hpp	/^	WINDOW *output;$/;"	m	class:Window
+passwd	ChatClient.hpp	/^      string passwd;$/;"	m	class:Client
+passwd	UserManager.hpp	/^	string passwd;$/;"	m	class:User
+peer_ip	ChatClient.hpp	/^      string peer_ip;$/;"	m	class:Client
+pool	ChatServer.hpp	/^    DataPool pool;$/;"	m	class:Server
+pool	DataPool.hpp	/^	std::vector<std::string> pool;$/;"	m	class:DataPool
+port	ChatServer.hpp	/^    int port;$/;"	m	class:Param
+product_step	DataPool.hpp	/^	int product_step;$/;"	m	class:DataPool
+school	ChatClient.hpp	/^      string school;$/;"	m	class:Client
+school	Message.hpp	/^	string school;$/;"	m	class:Message
+school	UserManager.hpp	/^	string school;$/;"	m	class:User
+server	ChatClient.hpp	/^      struct sockaddr_in server;$/;"	m	class:Client	typeref:struct:Client::sockaddr_in
+server	Makefile	/^server=ChatServer$/;"	m
+sock	ChatServer.hpp	/^    int sock;$/;"	m	class:Param
+sp	ChatServer.hpp	/^    Server* sp;$/;"	m	class:Param
+tcp_listen_sock	ChatServer.hpp	/^	int tcp_listen_sock;$/;"	m	class:Server
+tcp_port	ChatServer.hpp	/^	int tcp_port;$/;"	m	class:Server
+tcp_sock	ChatClient.hpp	/^      int tcp_sock;$/;"	m	class:Client
+text	Message.hpp	/^	string text;$/;"	m	class:Message
+text	ProtocolUtil.hpp	/^   string text;$/;"	m	class:Request
+udp_port	ChatServer.hpp	/^	int udp_port;$/;"	m	class:Server
+udp_sock	ChatClient.hpp	/^      int udp_sock;$/;"	m	class:Client
+udp_work_sock	ChatServer.hpp	/^	int udp_work_sock;$/;"	m	class:Server
+um	ChatServer.hpp	/^	UserManager um;$/;"	m	class:Server
+users	UserManager.hpp	/^    unordered_map<unsigned int,User> users;$/;"	m	class:UserManager
+w	ChatClient.hpp	/^    Window* w;$/;"	m	struct:ParamPair
+~Client	ChatClient.hpp	/^      ~Client()$/;"	f	class:Client
+~DataPool	DataPool.hpp	/^	~DataPool()$/;"	f	class:DataPool
+~Message	Message.hpp	/^	~Message()$/;"	f	class:Message
+~Param	ChatServer.hpp	/^    ~Param()$/;"	f	class:Param
+~Request	ProtocolUtil.hpp	/^   ~Request()$/;"	f	class:Request
+~Server	ChatServer.hpp	/^     ~Server()$/;"	f	class:Server
+~User	UserManager.hpp	/^	~User()$/;"	f	class:User
+~UserManager	UserManager.hpp	/^    ~UserManager()$/;"	f	class:UserManager
+~Window	Window.hpp	/^	~Window()$/;"	f	class:Window
