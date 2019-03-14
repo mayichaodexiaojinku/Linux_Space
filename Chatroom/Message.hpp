@@ -4,6 +4,7 @@
 #include"ProtocolUtil.hpp"
 #define NO_TYPE 0
 #define LOGIN_TYPE 1
+#define LOGOUT_TYPE 2
 class Message{
 private:
     string nick_name;

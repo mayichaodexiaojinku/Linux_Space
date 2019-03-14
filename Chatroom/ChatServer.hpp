@@ -53,7 +53,9 @@ public:
         if(!message.empty()){
              Message m;
              m.ToRecvValue(message);
-             um.AddOnlineUser(m.Id(),peer);
+             if(m.Type() != LOGOUT_TYPE){
+                 um.AddOnlineUser(m.Id(),peer);
+             }
              pool.PutMessage(message);
         }
     }
@@ -67,6 +69,7 @@ public:
         for(auto it = online.begin(); it != online.end();it++){
                   Util::SendMessage(udp_work_sock,message,it->second); 
         }
+        
     }
     unsigned int RegisterUser(const string &name,const string school\
                               ,const string &passwd)
@@ -77,6 +80,10 @@ public:
     {
          return  um.Check(id,passwd);
         
+    }
+    int LogoutUser(unsigned int &id)
+    {
+         return um.DeleteOnlineUser(id);
     }  
 	static void* HeaderRequest(void *arg)
 	{
@@ -102,7 +109,12 @@ public:
               string passwd = root["passwd"].asString();
               unsigned int result = sp->LoginUser(id,passwd);
               send(sock,&result,sizeof(result),0);
-		} 
+		}
+        else if(rq.method == "LOGOUT"){
+              unsigned int id =root["id"].asInt();
+              int result = sp->LogoutUser(id);
+              send(sock,&result,sizeof(result),0);
+        } 
         close(sock);
      }
     

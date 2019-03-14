@@ -1,2 +1,2 @@
-test:test.c
+block:block.c
 	gcc $^ -o $@

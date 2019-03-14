@@ -35,7 +35,13 @@ public:
           }
           online_user.push_back(onlineString);
      }
-     
+     static void DeleteUser(vector<string> &online_user,\
+                            string &onlineString){
+          for(auto it=online_user.begin();it<online_user.end() ; it++){
+                 if(*it == onlineString)
+                      online_user.erase(it);
+          }
+     }
      static bool RegisterEnter(string &nick_name,string &school,\
                                  string &passwd)
      {
@@ -164,6 +170,7 @@ public:
         local.sin_addr.s_addr =htonl(INADDR_ANY);
         local.sin_port =htons(port);
         if(bind(sock,(struct sockaddr*)&local,sizeof(local)) < 0){
+             perror("bind");
              LOG("bind error",ERROR);
              exit(3);
         }
@@ -196,7 +203,7 @@ public:
         peer.sin_addr.s_addr = inet_addr(peer_ip.c_str());
         peer.sin_port = htons(port);
         if(connect(sock,(struct sockaddr*)&peer,sizeof(peer)) < 0){
-          perror("connect:");
+          perror("ddsad");
           LOG("connect error",WARNING);
           return 0;
         }

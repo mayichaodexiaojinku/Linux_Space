@@ -69,6 +69,14 @@ public:
         UnLock();
         return 2;
     }
+    int DeleteOnlineUser(const unsigned int &id)
+    {
+        Lock();
+        auto it =online_user.find(id);
+        online_user.erase(it);
+        UnLock();
+        return 1;
+    }
     void AddOnlineUser(const unsigned int &id,struct sockaddr_in &peer)
     {
        Lock();

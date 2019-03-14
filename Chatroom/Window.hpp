@@ -19,7 +19,6 @@ public:
         pthread_mutex_init(&lock,NULL);
 		initscr();
         curs_set(0);
-
 	}
 	void DrawHeader()
 	{
