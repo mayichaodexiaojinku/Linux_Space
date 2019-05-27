@@ -1,0 +1,5 @@
+= Start
+@ ./test:[0x4005f8] + 0x1690590 0x8
+@ /lib64/libc.so.6:(clearenv+0x7a)[0x7f2421e5b96a] - 0x1690010
+@ /lib64/libc.so.6:(tdestroy+0x5d)[0x7f2421f1d1fd] - 0x16900f0
+@ /lib64/libc.so.6:[0x7f2421f919dc] - 0x1690110
