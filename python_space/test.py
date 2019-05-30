@@ -87,6 +87,32 @@ AddMoney()
 print Money
 
 '''
+'''
 import math
 con = dir(math)
 print con
+'''
+'''
+import support
+support.print_func("mayichao");
+reload(support)
+'''
+'''
+from package_runoob.runoob1 import runoob1
+from package_runoob.runoob2 import runoob2
+
+runoob1()
+runoob2()
+'''
+'''
+str = raw_input("请输入：")
+print "你输入的内容是：",str
+'''
+'''
+fo = open("foo.txt","r")
+str = fo.read(10)
+print str
+fo.close()
+'''
+import os
+os.remove("foo.txt")
