@@ -114,5 +114,20 @@ str = fo.read(10)
 print str
 fo.close()
 '''
+'''
 import os
 os.remove("foo.txt")
+'''
+import re
+print(re.match('www','www.baidu.com').span())
+print(re.match('com','www.baidu.com'))
+line = "Cats are smater than dogs"
+matchobj = re.match(r'(.*) are (.*?) (.*) dogs',line,re.M|re.I)
+if matchobj:
+	print "matchobj.group():",matchobj.group()
+	print "matchobj.group(1):",matchobj.group(1)
+	print "matchobj.group(2):",matchobj.group(2)
+	print "matchobj.group(3):",matchobj.group(3)
+else:
+	print "No match !!!"
+
